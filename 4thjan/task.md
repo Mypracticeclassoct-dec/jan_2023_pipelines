@@ -11,4 +11,4 @@
 *  After the container is working, tag the image and push the image to your docker hub .
  check output
 * output :
-![preview](../../../AWS_Quality_Thoughts/AWS_Screenshots/jan2023_tasks_spc/4thjan/nodejsoutput.png)
+![Alt text](../../../AWS_Quality_Thoughts/AWS_Screenshots/jan2023_tasks_spc/4thjan/nodejsoutput.png)
