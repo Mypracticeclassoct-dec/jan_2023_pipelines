@@ -1,0 +1,37 @@
+https://github.com/nopSolutions/nopCommerce/tree/develop
+
+* launch a vm and clone the repository into the vm.
+* installing .net7 on ubuntu 22.04
+*   https://learn.microsoft.com/en-us/dotnet/core/install/linux-scripted-manual#scripted-install to download dotnet.sh file.
+*   
+*   https://learn.microsoft.com/en-us/dotnet/core/install/linux-ubuntu#2204-microsoft-package-feed  to install dotnet 
+
+* install dotnet7
+* figure out what 
+* donet restore
+----
+student restapi refer.
+----
+* install dotnet:
+    `wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb`
+    `sudo dpkg -i packages-microsoft-prod.deb`
+    `rm packages-microsoft-prod.deb`
+ install SDK:
+   `sudo apt-get update && \
+  sudo apt-get install -y dotnet-sdk-6.0`
+  
+  install runtime:    
+   `sudo apt-get update && \
+  sudo apt-get install -y aspnetcore-runtime-6.0`
+
+    `sudo apt-get install -y dotnet-runtime-6.0`
+
+----
+* dotnet restore - restores the dependiences and tools of the project.
+* dotnet build - build a project and all its dependencies into a set of binaries.
+* dotnet build-server - Interacts with servers started by a build.
+
+* create a azure-pipeline-yaml and do restore and build.
+* read azure-pipeline vs jenkins  : migrate from jenkins to azure pipeline article `https://learn.microsoft.com/en-us/azure/devops/pipelines/migrate/from-jenkins?view=azure-devops`
+* 
+
