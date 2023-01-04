@@ -9,6 +9,6 @@
 *  execute the build and observe the console output on the web by <publicip of node : 3000>.
 *  After that write a Dockerfile for the same and build an image and run the container.
 *  After the container is working, tag the image and push the image to your docker hub .
- 
+ check output
 * output :
 ![preview](../../../AWS_Quality_Thoughts/AWS_Screenshots/jan2023_tasks_spc/4thjan/nodejsoutput.png)
