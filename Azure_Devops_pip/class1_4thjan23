@@ -30,6 +30,10 @@ student restapi refer.
 * dotnet restore - restores the dependiences and tools of the project.
 * dotnet build - build a project and all its dependencies into a set of binaries.
 * dotnet build-server - Interacts with servers started by a build.
+* dotnet clean command cleans the output of the previous build.
+* dotnet format is a code formatter that applies style preferences to a project or solution. Preferences will be read from an .editorconfig file, if present, otherwise a default set of preferences will be used.
+* dotnet msbuild - Builds a project and all of its dependencies. Note: A solution or project file may need to be specified if there are multiple.
+* 
 
 * create a azure-pipeline-yaml and do restore and build.
 * read azure-pipeline vs jenkins  : migrate from jenkins to azure pipeline article `https://learn.microsoft.com/en-us/azure/devops/pipelines/migrate/from-jenkins?view=azure-devops`
