@@ -8,9 +8,10 @@ pipeline{
         }
         stage ('package'){
             steps{
-                withSonarQubeEnv('sonarcloud'){
+                /*withSonarQubeEnv('sonarcloud'){
                 sh 'mvn clean package sonar:sonar'
-                }
+                }*/
+                sh 'mvn clean package sonar:sonar'
             }
         }
         stage ('artifactory configuration'){
