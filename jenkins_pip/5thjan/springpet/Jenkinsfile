@@ -16,27 +16,27 @@ pipeline{
         stage ('artifactory configuration'){
             steps{
                 rtMavenDeployer(
-                    id: "maven deployer",
-                    serverId: "jfrog",
-                    releaseRepo: "jenkinspip-libs-release-local",
-                    snapshotRepo: "jenkinspip-libs-snapshot-local"
+                    id : "maven deployer",
+                    serverId : "jfrog",
+                    releaseRepo : "jenkinspip-libs-release-local",
+                    snapshotRepo : "jenkinspip-libs-snapshot-local"
                 )
                 rtMavenResolver(
-                    id: "maven resolver" //library for working with artifact repositories and dependency resolution
-                    serverId: "jfrog",
-                    releaseRepo: "jenkinspip-libs-release-local",
-                    snapshotRepo: "jenkinspip-libs-snapshot-local"
+                    id : "maven resolver" //library for working with artifact repositories and dependency resolution
+                    serverId : "jfrog",
+                    releaseRepo : "jenkinspip-libs-release-local",
+                    snapshotRepo : "jenkinspip-libs-snapshot-local"
                     
                 )
                 rtMavenRun(
-                    tool: "maven3.6.3",
-                    pom: "pom.xml",
-                    goals: "clean install",
-                    deployerId: "maven deployer",
-                    resolverId: "maven resolver"
+                    tool : "maven3.6.3",
+                    pom : "pom.xml",
+                    goals : "clean install",
+                    deployerId : "maven deployer",
+                    resolverId : "maven resolver"
                 )
                 rtPublishBuildInfo(
-                    serverId: "jfrog" // publishes BuildInfo to Artifactory. BuildInfo provides a manifest for the build and includes metadata about the modules, dependencies and other environment variables
+                    serverId : "jfrog" // publishes BuildInfo to Artifactory. BuildInfo provides a manifest for the build and includes metadata about the modules, dependencies and other environment variables
                 )
                
             }
