@@ -1,0 +1,44 @@
+pipeline{
+    agent { label : 'nodejs'}
+    stages {
+        stage ('clone'){
+            steps {
+                git branch : 'main', url: "https://github.com/vamsibakka/spring-petclinic.git"
+            }
+        }
+        stage ('package'){
+            steps{
+                withSonarQubeEnv('my sonarcloud server'){
+                sh 'mvn clean package sonar:sonar'
+                }
+            }
+        }
+        stage ('artifactory configuration'){
+            steps{
+                rtMavenDeployer(
+                    id : "maven deployer",
+                    serverId : "jfrog",
+                    releaseRepo : "jenkinspip-libs-release-local",
+                    snapshotRepo : "jenkinspip-libs-snapshot-local"
+                )
+                rtMavenResolver(
+                    id : "maven resolver" //library for working with artifact repositories and dependency resolution
+                    releaseRepo : "jenkinspip-libs-release-local",
+                    snapshotRepo : "jenkinspip-libs-snapshot-local",
+                    serverId : "jfrog"
+                )
+                rtMavenRun(
+                    tool : "maven3.6.3",
+                    pom : "pom.xml",
+                    goals : "clean install",
+                    deployerId : "maven deployer",
+                    resolverId : "maven resolver"
+                )
+                rtPublishBuildInfo(
+                    serverId : "jfrog" // publishes BuildInfo to Artifactory. BuildInfo provides a manifest for the build and includes metadata about the modules, dependencies and other environment variables
+                )
+               
+            }
+        }
+    }
+}

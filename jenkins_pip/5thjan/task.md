@@ -13,4 +13,7 @@
 Ex: release/1.0.0 then tag 1.0.0 is required
 ----
 * follow the link to integrate sonarqube cloud with jenkins:`https://docs.sonarcloud.io/advanced-setup/ci-based-analysis/jenkins-extension-for-sonarcloud/`.
-* 
+* read this to understand the sonarcube code analysis sysntax in jenkins  `https://www.jenkins.io/doc/pipeline/steps/sonar/`.
+* read the following link to under-stand artifactory upload and download form jfrog artifactory `https://www.jfrog.com/confluence/display/JFROG/Scripted+Pipeline+Syntax`.
+*  Refer the link to watch videous for jfrog xray and jfrog artifactory `https://www.jfrog.com/confluence/display/JFROG/JFrog+Cloud`.
+*  
