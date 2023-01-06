@@ -22,7 +22,7 @@ pipeline{
                     snapshotRepo : "jenkinspip-libs-snapshot-local"
                 )
                 rtMavenResolver(
-                    id : "maven resolver" //library for working with artifact repositories and dependency resolution
+                    id : "maven resolver", //library for working with artifact repositories and dependency resolution
                     serverId : "jfrog",
                     releaseRepo : "jenkinspip-libs-release-local",
                     snapshotRepo : "jenkinspip-libs-snapshot-local"
