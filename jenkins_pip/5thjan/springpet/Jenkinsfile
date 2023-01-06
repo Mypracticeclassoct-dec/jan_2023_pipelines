@@ -8,11 +8,18 @@ pipeline{
         }
         stage ('package'){
             steps{
-                withSonarQubeEnv('sonarcloud1'){
+                withSonarQubeEnv('sonarcloud'){
                 sh 'mvn clean package sonar:sonar'
-                sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=jenkins-sin'
                 }
+
                 //sh 'mvn clean package sonar:sonar'
+            }
+        }
+        stage('qualitygate'){
+            steps{
+                timeout(time:2,unit:'MINUTES'){
+                    waitForQualityGate  abortPipeline: true
+                }
             }
         }
         stage ('artifactory configuration'){
