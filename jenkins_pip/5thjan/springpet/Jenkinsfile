@@ -23,9 +23,10 @@ pipeline{
                 )
                 rtMavenResolver(
                     id : "maven resolver" //library for working with artifact repositories and dependency resolution
+                    serverId : "jfrog",
                     releaseRepo : "jenkinspip-libs-release-local",
-                    snapshotRepo : "jenkinspip-libs-snapshot-local",
-                    serverId : "jfrog"
+                    snapshotRepo : "jenkinspip-libs-snapshot-local"
+                    
                 )
                 rtMavenRun(
                     tool : "maven3.6.3",
