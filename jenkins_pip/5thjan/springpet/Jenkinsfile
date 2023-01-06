@@ -9,7 +9,7 @@ pipeline{
         stage ('package'){
             steps{
                 withSonarQubeEnv('sonarcloud'){
-                sh 'mvn clean package sonar:sonar'
+                sh 'mvn clean  sonar:sonar'
                 }
                 //sh 'mvn clean package sonar:sonar'
             }
