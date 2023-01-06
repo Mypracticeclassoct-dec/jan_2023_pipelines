@@ -10,6 +10,7 @@ pipeline{
             steps{
                 withSonarQubeEnv('sonarcloud1'){
                 sh 'mvn clean package sonar:sonar'
+                sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=jenkins-sin'
                 }
                 //sh 'mvn clean package sonar:sonar'
             }
