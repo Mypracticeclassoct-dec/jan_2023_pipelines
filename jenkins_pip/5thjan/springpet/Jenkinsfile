@@ -52,10 +52,10 @@ pipeline{
         }
         stage('docker image'){
             steps{
-                sh ```
+                sh '''
                    docker image build -t vamsibakka/pet:1.0 .
                    docker image push vamsibakka/pet:1.0 
-                ```
+                '''
             }
         }
     }
