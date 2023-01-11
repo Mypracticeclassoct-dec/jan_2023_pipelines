@@ -62,8 +62,7 @@ pipeline{
                 '''
             }
         }
-        stage('email'){
-            steps{
+    }
         post {
             always {
                 mail to: "vamsikrishna.123.vk@gmail.com",
@@ -83,8 +82,5 @@ pipeline{
             body: """ The build is a failure the build number is $env.BUILD_NUMBER
                     $env.BUILD_ID """
           }
-            }
-        }
-        }
-    }
+       }
 }
