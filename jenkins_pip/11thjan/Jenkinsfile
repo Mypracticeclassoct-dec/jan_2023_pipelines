@@ -11,8 +11,8 @@ pipeline{
         steps{
             sh """
               docker image pull ubuntu:20.04
-              docker image tag  ubuntu:20.04 jenkinspip.jfrog.io/dockerjfrog-docker/ubuntu:1.0-jfrog
-              docker image push jenkinspip.jfrog.io/dockerjfrog-docker/ubuntu:1.0-jfrog 
+              docker image tag  ubuntu:20.04 a0fcmuzrvd7po.jfrog.io/dockerjfrog-docker/ubuntu:1.0-jfrog
+              docker image push a0fcmuzrvd7po.jfrog.io/dockerjfrog-docker/ubuntu:1.0-jfrog 
               echo "docker image is pulled for dockerhub and docker image is pushed to the dockerhub jfrog"
             """
         }
