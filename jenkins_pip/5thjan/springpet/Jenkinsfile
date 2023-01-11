@@ -53,8 +53,8 @@ pipeline{
         stage('docker image'){
             steps{
                 sh '''
-                   docker image build -t vamsibakka/pet:$env.BUILD_NUMBER .
-                   docker image push vamsibakka/pet:$env.BUILD_NUMBER 
+                   docker image build -t vamsibakka/pet:${env.BUILD_NUMBER} .
+                   docker image push vamsibakka/pet:${env.BUILD_NUMBER} 
                    echo "docker image is pushed to the docker hub"
                    docker image tag pet:1.0 a0fcmuzrvd7po.jfrog.io/dockerjfrog-docker/pet:jfg-1.0
                    docker image push a0fcmuzrvd7po.jfrog.io/dockerjfrog-docker/pet:jfg-1.0
@@ -66,14 +66,14 @@ pipeline{
             always{
                 mail to: "vamsikrishna.123.vk@gmail.com",
                 subject: "BUILD IS DONE",
-                body:" The build is done the build number $env.BUILD_NUMBER "
+                body:" The build is done the build number ${env.BUILD_NUMBER} "
             }
             success{
               mail to: "vamsikrishna.123.vk@gmail.com",
               subject: "BUild IS SUCCESS",
-              body: "The build is success in the build number $env.BUILD_NUMBER
-                          $env.BUILD_URL
-                          $env.BUILD_ID "
+              body: "The build is success in the build number ${env.BUILD_NUMBER}
+                          ${env.BUILD_URL}
+                          ${env.BUILD_ID} "
         }
           failure{
             mail to :" vamsikrishna.123.vk@gmail.com",
