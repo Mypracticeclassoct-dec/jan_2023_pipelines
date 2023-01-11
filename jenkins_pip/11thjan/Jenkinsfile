@@ -1,6 +1,22 @@
 pipeline{
     agent { label 'nodejs'}
-    trigger {
+    /*triggers {
         pollSCM( ' * * * * * ')
+    }*/
+    /*parameters {
+        choice(name:'image_build', choices: ['base_image','test_image','none','image'], description:'To select the base image to build')
+    }*/
+   stages{
+    stage('pull images'){
+        steps{
+            sh """
+              docker image pull ubuntu:20.04
+              docker image tag  ubuntu:20.04 jenkinspip.jfrog.io/dockerjfrog-docker/ubuntu:1.0-jfrog
+              docker image push jenkinspip.jfrog.io/dockerjfrog-docker/ubuntu:1.0-jfrog 
+              echo "docker image is pulled for dockerhub and docker image is pushed to the dockerhub jfrog"
+            """
+        }
     }
+   }
+
 }
