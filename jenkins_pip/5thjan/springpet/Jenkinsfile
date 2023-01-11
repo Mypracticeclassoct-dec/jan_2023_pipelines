@@ -62,20 +62,20 @@ pipeline{
                 '''
             }
         }
-        post{
-            always{
+        post {
+            always {
                 mail to: "vamsikrishna.123.vk@gmail.com",
                 subject: "BUILD IS DONE",
                 body:"""The build is done the build number $env.BUILD_NUMBER"""
             }
-            success{
+            success {
               mail to: "vamsikrishna.123.vk@gmail.com",
               subject: "BUild IS SUCCESS",
               body: """The build is success in the build number $env.BUILD_NUMBER
                           $env.BUILD_URL
                           $env.BUILD_ID """
         }
-          failure{
+          failure {
             mail to :" vamsikrishna.123.vk@gmail.com",
             subject: "BUILD IS FAILURE",
             body: """ The build is a failure the build number is $env.BUILD_NUMBER
