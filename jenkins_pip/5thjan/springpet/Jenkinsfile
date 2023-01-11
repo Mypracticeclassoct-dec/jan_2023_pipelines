@@ -63,6 +63,7 @@ pipeline{
             }
         }
         stage('email'){
+            steps{
         post {
             always {
                 mail to: "vamsikrishna.123.vk@gmail.com",
@@ -83,6 +84,7 @@ pipeline{
                     $env.BUILD_ID """
           }
             }
+        }
         }
     }
 }
